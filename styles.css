@@ -118,7 +118,17 @@ p { color: var(--text-mid); margin-bottom: 1rem; }
   background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
   pointer-events: none;
 }
-.hero-logo { margin: 0 auto 36px; width: 180px; background: #fff; border-radius: 10px; padding: 16px; box-shadow: 0 0 60px rgba(201,168,76,0.3); }
+.hero-logo-wrap {
+  display: block;
+  width: 180px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto 36px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 0 60px rgba(201,168,76,0.3);
+}
+.hero-logo-wrap img { width: 100%; height: auto; display: block; border-radius: 4px; }
 .hero-eyebrow { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; max-width: 760px; margin: 0 auto 24px; line-height: 1.15; color: var(--on-dark); }
 .hero h1 em { font-style: normal; color: var(--gold); }
