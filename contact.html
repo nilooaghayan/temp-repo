@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Kas the Lionheart Law</title>
+  <meta name="description" content="Contact Attorney Kasra Ramez at Kas the Lionheart Law. Call (213) 786-4528 or submit an inquiry for a free employment law consultation." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <img src="images/logo.jpg" alt="Kas the Lionheart Law Logo" />
+        <div class="brand-text">
+          <span class="firm-name">Kas the Lionheart Law</span>
+          <span class="firm-sub">Employment Law</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bio.html">Attorney Bio</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-header">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h1>Contact <span style="color:var(--gold)">Our Firm</span></h1>
+      <p>
+        Ready to discuss your case? Reach out for a free, confidential consultation
+        with Attorney Kasra Ramez. We respond to all inquiries promptly.
+      </p>
+    </div>
+  </header>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Contact Info Sidebar -->
+        <div class="contact-info-card">
+          <h2>Kas the Lionheart Law</h2>
+          <p class="sub">Employment Law Attorney</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">&#9742;</div>
+            <div class="contact-detail-text">
+              <strong>Phone</strong>
+              <a href="tel:2137864528">(213) 786-4528</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">&#9993;</div>
+            <div class="contact-detail-text">
+              <strong>Email</strong>
+              <a href="mailto:kramez@kasthelionheartlaw.com">kramez@kasthelionheartlaw.com</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">&#127968;</div>
+            <div class="contact-detail-text">
+              <strong>Location</strong>
+              <span>Los Angeles, California</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">&#128337;</div>
+            <div class="contact-detail-text">
+              <strong>Office Hours</strong>
+              <span>Mon – Fri: 9:00 AM – 6:00 PM</span>
+            </div>
+          </div>
+
+          <div style="margin-top:28px;padding-top:28px;border-top:1px solid var(--border);">
+            <p style="font-size:0.82rem;color:#555;margin:0;line-height:1.6;">
+              <strong style="color:var(--gold);">Confidentiality Notice:</strong>
+              All consultations are strictly confidential. Initial consultations are free of charge.
+              We handle most employment cases on a contingency fee basis — you pay nothing unless we recover for you.
+            </p>
+          </div>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div class="form-card">
+          <h2>Send an <span style="color:var(--gold)">Inquiry</span></h2>
+          <p class="sub-text">
+            Describe your situation below and our team will follow up within one business day
+            to schedule your free consultation.
+          </p>
+
+          <form id="inquiryForm" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name <span style="color:var(--gold)">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span style="color:var(--gold)">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address <span style="color:var(--gold)">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(213) 555-0000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="matterType">Type of Matter <span style="color:var(--gold)">*</span></label>
+              <select id="matterType" name="matterType" required>
+                <option value="" disabled selected>Select the closest category</option>
+                <option value="wrongful-termination">Wrongful Termination</option>
+                <option value="discrimination">Discrimination</option>
+                <option value="harassment">Harassment / Hostile Work Environment</option>
+                <option value="retaliation">Retaliation / Whistleblower</option>
+                <option value="wage-hour">Wage &amp; Hour Violation</option>
+                <option value="contract">Employment Contract / Severance</option>
+                <option value="fmla">FMLA / CFRA Leave Issues</option>
+                <option value="other">Other Employment Matter</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="employer">Current or Former Employer</label>
+              <input type="text" id="employer" name="employer" placeholder="Name of the employer" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Describe Your Situation <span style="color:var(--gold)">*</span></label>
+              <textarea id="message" name="message" placeholder="Please provide a brief overview of what happened and when. The more detail you share, the better we can evaluate your case." required></textarea>
+            </div>
+
+            <p class="form-disclaimer">
+              <strong>Attorney-Client Privilege Notice:</strong>
+              Information submitted here is confidential. Submitting this form does not create
+              an attorney-client relationship. Do not include highly sensitive information
+              (e.g., Social Security numbers) in this form.
+            </p>
+
+            <button type="submit" class="btn btn-gold" style="width:100%;text-align:center;">
+              Submit Inquiry
+            </button>
+
+            <div class="form-success" id="formSuccess">
+              &#10003;&nbsp; Thank you! Your inquiry has been sent to our office.
+              Attorney Ramez or a member of our team will be in touch within one business day.
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Kas the Lionheart Law" />
+          <p>Dedicated employment law representation for California workers. Fighting for justice, one case at a time.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Practice Areas</h4>
+          <ul>
+            <li><a href="#">Wrongful Termination</a></li>
+            <li><a href="#">Discrimination</a></li>
+            <li><a href="#">Harassment</a></li>
+            <li><a href="#">Retaliation</a></li>
+            <li><a href="#">Wage &amp; Hour</a></li>
+            <li><a href="#">Employment Contracts</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="bio.html">Attorney Bio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Free Consultation</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kas the Lionheart Law. All rights reserved.</p>
+        <p class="disclaimer">
+          The information on this website is for general informational purposes only and does not
+          constitute legal advice. Contacting this firm does not create an attorney-client relationship.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FORM SCRIPT ===== -->
+  <script>
+    (function () {
+      const form = document.getElementById('inquiryForm');
+      const successMsg = document.getElementById('formSuccess');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Basic HTML5 validation
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const firstName   = document.getElementById('firstName').value.trim();
+        const lastName    = document.getElementById('lastName').value.trim();
+        const email       = document.getElementById('email').value.trim();
+        const phone       = document.getElementById('phone').value.trim();
+        const matterType  = document.getElementById('matterType').value;
+        const employer    = document.getElementById('employer').value.trim();
+        const message     = document.getElementById('message').value.trim();
+
+        // Build email body
+        const subject = encodeURIComponent(
+          'New Client Inquiry — ' + matterType.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+        );
+
+        const body = encodeURIComponent(
+          'NEW CLIENT INQUIRY — KAS THE LIONHEART LAW\n' +
+          '===========================================\n\n' +
+          'Name:      ' + firstName + ' ' + lastName + '\n' +
+          'Email:     ' + email + '\n' +
+          'Phone:     ' + (phone || 'Not provided') + '\n' +
+          'Matter:    ' + matterType.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) + '\n' +
+          'Employer:  ' + (employer || 'Not provided') + '\n\n' +
+          'MESSAGE:\n' +
+          '--------\n' +
+          message + '\n\n' +
+          '---\n' +
+          'Sent from the Kas the Lionheart Law website contact form.'
+        );
+
+        // Open default mail client addressed to the firm
+        window.location.href =
+          'mailto:kramez@kasthelionheartlaw.com?subject=' + subject + '&body=' + body;
+
+        // Show success message and hide form fields
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Inquiry Sent';
+        submitBtn.style.opacity = '0.6';
+        successMsg.style.display = 'block';
+      });
+    })();
+  </script>
+
+</body>
+</html>
