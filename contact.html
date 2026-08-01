@@ -218,56 +218,62 @@
   <!-- ===== FORM SCRIPT ===== -->
   <script>
     (function () {
-      const form = document.getElementById('inquiryForm');
+      const form      = document.getElementById('inquiryForm');
       const successMsg = document.getElementById('formSuccess');
+      const submitBtn  = form.querySelector('button[type="submit"]');
 
-      form.addEventListener('submit', function (e) {
+      form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        // Basic HTML5 validation
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
 
-        const firstName   = document.getElementById('firstName').value.trim();
-        const lastName    = document.getElementById('lastName').value.trim();
-        const email       = document.getElementById('email').value.trim();
-        const phone       = document.getElementById('phone').value.trim();
-        const matterType  = document.getElementById('matterType').value;
-        const employer    = document.getElementById('employer').value.trim();
-        const message     = document.getElementById('message').value.trim();
+        // Disable button while submitting
+        submitBtn.disabled    = true;
+        submitBtn.textContent = 'Sending\u2026';
+        submitBtn.style.opacity = '0.7';
 
-        // Build email body
-        const subject = encodeURIComponent(
-          'New Client Inquiry — ' + matterType.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
-        );
+        const matterRaw = document.getElementById('matterType').value;
+        const matterLabel = matterRaw.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
-        const body = encodeURIComponent(
-          'NEW CLIENT INQUIRY — KAS THE LIONHEART LAW\n' +
-          '===========================================\n\n' +
-          'Name:      ' + firstName + ' ' + lastName + '\n' +
-          'Email:     ' + email + '\n' +
-          'Phone:     ' + (phone || 'Not provided') + '\n' +
-          'Matter:    ' + matterType.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) + '\n' +
-          'Employer:  ' + (employer || 'Not provided') + '\n\n' +
-          'MESSAGE:\n' +
-          '--------\n' +
-          message + '\n\n' +
-          '---\n' +
-          'Sent from the Kas the Lionheart Law website contact form.'
-        );
+        const payload = {
+          _subject:   'New Client Inquiry \u2014 ' + matterLabel + ' | Kas the Lionheart Law',
+          firstName:  document.getElementById('firstName').value.trim(),
+          lastName:   document.getElementById('lastName').value.trim(),
+          email:      document.getElementById('email').value.trim(),
+          phone:      document.getElementById('phone').value.trim() || 'Not provided',
+          matterType: matterLabel,
+          employer:   document.getElementById('employer').value.trim() || 'Not provided',
+          message:    document.getElementById('message').value.trim()
+        };
 
-        // Open default mail client addressed to the firm
-        window.location.href =
-          'mailto:kramez@kasthelionheartlaw.com?subject=' + subject + '&body=' + body;
+        try {
+          const response = await fetch('https://formspree.io/f/mjgnqvzp', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body:    JSON.stringify(payload)
+          });
 
-        // Show success message and hide form fields
-        const submitBtn = form.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Inquiry Sent';
-        submitBtn.style.opacity = '0.6';
-        successMsg.style.display = 'block';
+          if (response.ok) {
+            submitBtn.textContent   = 'Inquiry Sent';
+            submitBtn.style.opacity = '0.6';
+            successMsg.style.display = 'block';
+            form.reset();
+          } else {
+            const json = await response.json().catch(() => ({}));
+            const msg  = (json.errors || []).map(function(err){ return err.message; }).join(' ') ||
+                         'Submission failed. Please try again.';
+            throw new Error(msg);
+          }
+        } catch (err) {
+          submitBtn.disabled      = false;
+          submitBtn.textContent   = 'Submit Inquiry';
+          submitBtn.style.opacity = '1';
+          alert('Sorry, something went wrong: ' + err.message +
+                '\n\nYou can also reach us directly at (213) 786-4528 or kramez@kasthelionheartlaw.com');
+        }
       });
     })();
   </script>
