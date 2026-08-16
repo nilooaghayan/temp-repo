@@ -330,6 +330,9 @@ p { color: var(--text-mid); margin-bottom: 1rem; }
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
   .about-strip .container { grid-template-columns: 1fr; }
+  .about-strip-text { text-align: center; }
+  .about-strip-text .stat-row { justify-content: center; }
+  .about-strip-text .btn { display: block; text-align: center; }
   .bio-section .container { grid-template-columns: 1fr; }
   .bio-portrait-wrap { position: static; max-width: 320px; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -341,7 +344,9 @@ p { color: var(--text-mid); margin-bottom: 1rem; }
   .form-row { grid-template-columns: 1fr; }
   .practice-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  .stat-row { gap: 24px; }
+  .stat-row { gap: 16px; }
+  .stat-item strong { font-size: 1.4rem; }
+  .stat-item span { font-size: 0.7rem; letter-spacing: 0.04em; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .footer-bottom .disclaimer { text-align: left; }
   .form-card { padding: 28px 20px; }
