@@ -1,7 +1,7 @@
 ﻿/* ===========================
    KAS THE LIONHEART LAW
    Global Stylesheet
-   Theme: White / Gold / Gray
+   Theme: White / Gold / Navy
    =========================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap');
@@ -22,26 +22,26 @@
 
   /* Page surfaces */
   --bg-white:    #ffffff;
-  --bg-off:      #f7f4ef;
+  --bg-off:      #f1f4f9;
   --bg-card:     #ffffff;
 
   /* Dark surfaces - hero & footer only */
-  --dark:        #1e1b16;
-  --dark-soft:   #272420;
+  --dark:        #0f1e3d;
+  --dark-soft:   #162240;
 
   /* Text */
-  --text:        #1a1714;
-  --text-mid:    #4a4640;
-  --text-muted:  #7a7570;
+  --text:        #111827;
+  --text-mid:    #384266;
+  --text-muted:  #6b7490;
 
   /* Borders */
-  --border:      #e5dfd5;
-  --border-dark: #2e2a24;
+  --border:      #d6dce9;
+  --border-dark: #1a2d52;
   --border-gold: rgba(201,168,76,0.35);
 
   /* White text (dark sections only) */
-  --on-dark:     #f0ece6;
-  --on-dark-dim: #a8a098;
+  --on-dark:     #eef1f8;
+  --on-dark-dim: #8a9ab8;
 
   --font-serif:  'Playfair Display', Georgia, serif;
   --font-sans:   'Lato', Arial, sans-serif;
@@ -110,7 +110,7 @@ p { color: var(--text-mid); margin-bottom: 1rem; }
 /* === HERO (dark - intentional) === */
 .hero {
   position: relative;
-  background: linear-gradient(160deg, var(--dark) 0%, #242018 60%, #1c1608 100%);
+  background: linear-gradient(160deg, var(--dark) 0%, #162240 60%, #0d1c3a 100%);
   padding: 100px 0 80px; overflow: hidden; text-align: center;
 }
 .hero::before {
@@ -120,15 +120,14 @@ p { color: var(--text-mid); margin-bottom: 1rem; }
 }
 .hero-logo-wrap {
   display: block;
-  width: 180px;
+  width: 260px;
   max-width: calc(100% - 48px);
-  margin: 0 auto 36px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 14px;
-  box-shadow: 0 0 60px rgba(201,168,76,0.3);
+  margin: 0 auto 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px var(--gold), 0 0 0 6px rgba(201,168,76,0.2), 0 0 60px rgba(201,168,76,0.5), 0 24px 64px rgba(0,0,0,0.5);
 }
-.hero-logo-wrap img { width: 100%; height: auto; display: block; border-radius: 4px; }
+.hero-logo-wrap img { width: 100%; height: auto; display: block; }
 .hero-eyebrow { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; max-width: 760px; margin: 0 auto 24px; line-height: 1.15; color: var(--on-dark); }
 .hero h1 em { font-style: normal; color: var(--gold); }
@@ -154,20 +153,26 @@ p { color: var(--text-mid); margin-bottom: 1rem; }
 .services-grid .service-card { flex: 1 1 280px; max-width: 340px; width: 100%; }
 .service-card {
   background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--gold);
-  padding: 36px 28px; border-radius: 2px; box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  padding: 28px; border-radius: 2px; box-shadow: 0 2px 12px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 14px;
+  align-items: center;
 }
 .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
-.service-icon { font-size: 2.2rem; margin-bottom: 18px; }
-.service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: var(--text); }
-.service-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+.service-icon { font-size: 1.8rem; margin-bottom: 0; grid-column: 1; grid-row: 1; align-self: center; }
+.service-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0; color: var(--text); grid-column: 2; grid-row: 1; align-self: center; }
+.service-card p { font-size: 0.9rem; color: var(--text-muted); margin: 10px 0 0 0; grid-column: 1 / -1; grid-row: 2; }
 
 /* === ABOUT STRIP === */
 .about-strip { padding: 90px 0; background: var(--bg-white); }
 .about-strip .container { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.about-strip-img { position: relative; }
-.about-strip-img img { border-radius: 4px; width: 100%; max-width: 380px; margin: 0 auto; box-shadow: 0 16px 48px rgba(0,0,0,0.12); border: 1px solid var(--border); }
-.about-strip-img::before { content: ''; position: absolute; top: -12px; left: -12px; right: 12px; bottom: -12px; border: 1px solid var(--border-gold); border-radius: 4px; pointer-events: none; }
+.about-strip-img { position: relative; display: flex; align-items: center; justify-content: center; background: var(--bg-off); border-radius: 8px; border: 1px solid var(--border-gold); padding: 48px; }
+.about-strip-img img { width: 100%; max-width: 280px; margin: 0 auto; display: block; }
+.about-strip-img::before { content: ''; position: absolute; top: 16px; left: 16px; width: 36px; height: 36px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); pointer-events: none; }
+.about-strip-img::after { content: ''; position: absolute; bottom: 16px; right: 16px; width: 36px; height: 36px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); pointer-events: none; }
 .about-strip-text .section-title { margin-bottom: 20px; }
 .about-strip-text p { color: var(--text-mid); margin-bottom: 1.2rem; }
 .stat-row { display: flex; gap: 40px; margin: 32px 0; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -318,9 +323,9 @@ p { color: var(--text-mid); margin-bottom: 1rem; }
 .footer-col ul li a:hover { color: var(--gold); }
 .footer-bottom { display: flex; flex-direction: column; gap: 10px; padding-top: 28px; }
 .footer-bottom-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-.footer-bottom p { font-size: 0.8rem; color: #9a9490; margin: 0; }
-.footer-advert { font-size: 0.78rem; color: #9a9490; font-style: italic; margin: 0; }
-.footer-bottom .disclaimer { font-size: 0.78rem; color: #8a8480; max-width: 100%; text-align: left; margin: 0; line-height: 1.65; border-top: 1px solid var(--border-dark); padding-top: 10px; }
+.footer-bottom p { font-size: 0.8rem; color: #8a92aa; margin: 0; }
+.footer-advert { font-size: 0.78rem; color: #8a92aa; font-style: italic; margin: 0; }
+.footer-bottom .disclaimer { font-size: 0.78rem; color: #7d8599; max-width: 100%; text-align: left; margin: 0; line-height: 1.65; border-top: 1px solid var(--border-dark); padding-top: 10px; }
 
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
